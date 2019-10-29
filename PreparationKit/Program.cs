@@ -492,8 +492,26 @@ namespace PreparationKit
 
         }
 
-        static int[] AltMinMax(int[] arr)
+        static int[] NextSmallLarge(int[] arr)
         {
+            for(int i = 0; i < arr.Length - 1; i++)
+            {
+                if(i % 2 == 0 && arr[i + 1] < arr[i])
+                {
+                    int temp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = temp;
+                }
+
+                if(i % 2 == 1 && arr[i + 1] > arr[i])
+                {
+                    int temp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = temp;
+                }
+
+            }
+            return arr;
         }
     }
 
